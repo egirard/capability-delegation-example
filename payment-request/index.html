@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Payment request example: subframe</title>
-    <script>
-      const button = document.getElementById('button');
-
+    <script defer>
       const requestPayment = async e => {
           const request = new PaymentRequest([{
               supportedMethods: 'basic-card',
@@ -42,7 +40,7 @@
           }
       };
 
-      button.addEventListener('click', requestPayment);
+      document.getElementById('button').addEventListener('click', requestPayment);
       window.addEventListener('message', requestPayment);
     </script>
   </head>
