@@ -8,46 +8,46 @@
       const requestPayment = async e => {
           console.log("requestPayment()");
           const request = new PaymentRequest([{
-              supportedMethods: 'basic-card',
+              supportedMethods: "basic-card",
               data: {
-                  supportedNetworks: ['visa', 'master', 'amex']
+                  supportedNetworks: ["visa", "master", "amex"]
               }
           }], {
               total: {
-                  label: 'total',
-                  amount: { currency: 'USD', value: '10.00' }
+                  label: "total",
+                  amount: { currency: "USD", value: "10.00" }
               }
           });
           try {
               const result = await request.show();
               if (result === null) {
                   result.complete(null);
-                  alert('success');
+                  alert("success");
                   return;
               } else {
                   return new Promise(resolve => {
                       setTimeout(e => {
-                          result.complete('success');
-                          alert('success');
+                          result.complete("success");
+                          alert("success");
                       }, 2000);
                   });
               }
           } catch (e) {
-              if (e.name == 'AbortError') {
+              if (e.name == "AbortError") {
                   return;
               } else {
-                  alert('error');
+                  alert("error");
               }
           }
       };
 
       function init() {
-          document.getElementById('button').addEventListener('click', requestPayment);
-          window.addEventListener('message', requestPayment);
+          document.getElementById("button").addEventListener("click", requestPayment);
+          window.addEventListener("message", requestPayment);
       }
     </script>
   </head>
-  <body onload=init>
+  <body onload="init()">
     <button id="button">Pay</button>
   </body>
 </html>
