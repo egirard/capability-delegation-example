@@ -46,8 +46,17 @@
           window.addEventListener("message", requestPayment);
       }
     </script>
+    <style>
+      body {
+          background-color: lightcyan;
+      }
+      #button {
+          display: none;
+      }
+    </style>
   </head>
   <body onload="init()">
+    <h2>Payment processor subframe</h2>
     <button id="button">Pay</button>
   </body>
 </html>
