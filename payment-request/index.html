@@ -6,7 +6,6 @@
     <title>Payment request example: subframe</title>
     <script>
       const requestPayment = async e => {
-          console.log("requestPayment()");
           const request = new PaymentRequest([{
               supportedMethods: "basic-card",
               data: {
